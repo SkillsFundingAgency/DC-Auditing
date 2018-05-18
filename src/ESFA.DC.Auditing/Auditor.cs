@@ -73,7 +73,7 @@ namespace ESFA.DC.Auditing
             string extraInfo = null)
         {
             await AuditAsync(
-                jobContextMessage.Topics[jobContextMessage.TopicPointer].TopicName,
+                jobContextMessage.Topics[jobContextMessage.TopicPointer].SubscriptionName,
                 eventType,
                 (string)jobContextMessage.KeyValuePairs[JobContextMessageKey.Username],
                 jobContextMessage.JobId,
