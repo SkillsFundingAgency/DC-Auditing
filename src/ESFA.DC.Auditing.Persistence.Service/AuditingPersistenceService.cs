@@ -37,6 +37,11 @@ namespace ESFA.DC.Auditing.Persistence.Service
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(obj.UserId))
+                {
+                    obj.UserId = "System";
+                }
+
                 using (SqlConnection connection = new SqlConnection(_config.ConnectionString))
                 {
                     await connection.OpenAsync(cancellationToken);
