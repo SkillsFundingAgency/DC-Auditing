@@ -17,13 +17,20 @@ namespace ESFA.DC.Auditing.Persistence.Service
 
         private readonly IAuditingPersistenceServiceConfig _config;
 
+        private readonly IQueueSubscriptionService<AuditingDto> _queueSubscriptionService;
+
         private readonly ILogger _logger;
 
         public AuditingPersistenceService(IAuditingPersistenceServiceConfig config, IQueueSubscriptionService<AuditingDto> queueSubscriptionService, ILogger logger)
         {
             _config = config;
+            _queueSubscriptionService = queueSubscriptionService;
             _logger = logger;
-            queueSubscriptionService.Subscribe((dto, token) => ProcessMessageAsync((T)dto, token));
+        }
+
+        public void Subscribe()
+        {
+            _queueSubscriptionService.Subscribe((dto, token) => ProcessMessageAsync((T)dto, token));
         }
 
         public async Task<bool> ProcessMessageAsync(T obj, CancellationToken cancellationToken)
@@ -32,7 +39,12 @@ namespace ESFA.DC.Auditing.Persistence.Service
             {
                 using (SqlConnection connection = new SqlConnection(_config.ConnectionString))
                 {
-                    connection.Open();
+                    await connection.OpenAsync(cancellationToken);
+                    if (cancellationToken.IsCancellationRequested)
+                    {
+                        return false;
+                    }
+
                     await connection.ExecuteAsync(
                         SqlAudit,
                         new { obj.JobId, DateTimeUtc = DateTime.UtcNow, obj.Filename, obj.Source, obj.UserId, obj.EventType, obj.ExtraInfo, obj.UkPrn });
