@@ -152,7 +152,8 @@
       <Value>$(SqlCmdVar__4)</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="BUILD_BUILDNUMBER">
-      <DefaultValue>X.Y.Z-LocalDev</DefaultValue>
+      <DefaultValue>
+      </DefaultValue>
       <Value>$(SqlCmdVar__3)</Value>
     </SqlCmdVariable>
   </ItemGroup>
