@@ -13,7 +13,7 @@ namespace ESFA.DC.Auditing.Persistence.Service
     public sealed class AuditingPersistenceService<T> : IAuditingPersistenceService<T>
         where T : AuditingDto, new()
     {
-        private const string SqlAudit = "INSERT INTO [dbo].[Audit] ([JobId], [DateTimeUtc], [Filename], [Source], [UserId], [Event], [ExtraInfo], [UkPrn]) VALUES (@JobId, @DateTimeUtc, @Filename, @Source, @UserId, @Event, @ExtraInfo, @UkPrn)";
+        private const string SqlAudit = "INSERT INTO [dbo].[Audit] ([JobId], [DateTimeUtc], [Filename], [Source], [UserId], [Event], [ExtraInfo], [UkPrn]) VALUES (@JobId, @DateTimeUtc, @Filename, @Source, @UserId, @EventType, @ExtraInfo, @UkPrn)";
 
         private readonly IAuditingPersistenceServiceConfig _config;
 
