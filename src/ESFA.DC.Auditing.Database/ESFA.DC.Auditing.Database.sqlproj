@@ -122,6 +122,8 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="Security" />
+    <Folder Include="zzDeploymentProfiles" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Audit.sql">
@@ -132,9 +134,33 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="Security\AppAuditUser.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Debug.Publish.xml" />
-    <None Include="Release.Publish.xml" />
+    <None Include="zzDeploymentProfiles\Release.publish.xml" />
+    <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="AppAuditUserPwd">
+      <DefaultValue>
+      </DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BUILD_BRANCHNAME">
+      <DefaultValue>Local Machine</DefaultValue>
+      <Value>$(SqlCmdVar__4)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BUILD_BUILDNUMBER">
+      <DefaultValue>X.Y.Z-LocalDev</DefaultValue>
+      <Value>$(SqlCmdVar__3)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DEPLOYMENT_DATETIME">
+      <DefaultValue>1900-01-01 00:00:00Z</DefaultValue>
+      <Value>$(SqlCmdVar__2)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="zzz.Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>
