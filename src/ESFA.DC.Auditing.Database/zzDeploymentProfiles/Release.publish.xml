@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseName>__DatabaseName__</TargetDatabaseName>
+    <DeployScriptFileName>__DatabaseProjectName__.sql</DeployScriptFileName>
+    <TargetConnectionString>Data Source=__SqlServer__;Persist Security Info=True;User ID=__SqlServerAdminUsername__;Password=__SqlServerAdminPassword__;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;</TargetConnectionString>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
+    <BlockWhenDriftDetected>False</BlockWhenDriftDetected>
+    <RegisterDataTierApplication>True</RegisterDataTierApplication>
+  </PropertyGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="AppAuditUserPwd">
+      <Value>__AUDITUSERPASSWORD__</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BUILD_BUILDNUMBER">
+      <Value>__BUILD_BUILDNUMBER__</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DEPLOYMENT_DATETIME">
+      <Value>__RELEASE_DEPLOYMENT_STARTTIME__</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BUILD_BRANCHNAME">
+      <Value>__BUILD_SOURCEBRANCHNAME__</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>
