@@ -155,10 +155,6 @@
       <DefaultValue>X.Y.Z-LocalDev</DefaultValue>
       <Value>$(SqlCmdVar__3)</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="DEPLOYMENT_DATETIME">
-      <DefaultValue>1900-01-01 00:00:00Z</DefaultValue>
-      <Value>$(SqlCmdVar__2)</Value>
-    </SqlCmdVariable>
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="zzz.Script.PostDeployment.sql" />
