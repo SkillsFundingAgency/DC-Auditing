@@ -8,7 +8,6 @@
     <ProfileVersionNumber>1</ProfileVersionNumber>
     <RegisterDataTierApplication>True</RegisterDataTierApplication>
     <BlockOnPossibleDataLoss>False</BlockOnPossibleDataLoss>
-    <BackupDatabaseBeforeChanges>True</BackupDatabaseBeforeChanges>
     <IgnoreIdentitySeed>True</IgnoreIdentitySeed>
     <BlockWhenDriftDetected>False</BlockWhenDriftDetected>
   </PropertyGroup>

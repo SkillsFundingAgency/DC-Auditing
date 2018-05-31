@@ -37,7 +37,6 @@ ELSE
 
 
 GO
-PRINT N'Update complete.';
-
+RAISERROR('		   Extended Property - Compelete',10,1) WITH NOWAIT;
 
 GO
