@@ -13,9 +13,6 @@
     <SqlCmdVariable Include="AppAuditUserPwd">
       <Value>NotUsedLocally!</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="DEPLOYMENT_DATETIME">
-      <Value>1900-01-01 00:00:00Z</Value>
-    </SqlCmdVariable>
     <SqlCmdVariable Include="BUILD_BUILDNUMBER">
       <Value>X.Y.Z-LocalDev</Value>
     </SqlCmdVariable>
