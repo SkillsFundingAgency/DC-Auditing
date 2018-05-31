@@ -33,7 +33,7 @@ namespace ESFA.DC.Auditing.Persistence.Service
             _queueSubscriptionService.Subscribe((dto, token) => ProcessMessageAsync((T)dto, token));
         }
 
-        public async Task<bool> ProcessMessageAsync(T obj, CancellationToken cancellationToken)
+        private async Task<bool> ProcessMessageAsync(T obj, CancellationToken cancellationToken)
         {
             try
             {
