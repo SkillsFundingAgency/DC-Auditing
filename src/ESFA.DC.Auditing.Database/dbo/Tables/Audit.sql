@@ -6,7 +6,7 @@
     [Source]      NVARCHAR (MAX) NOT NULL,
     [UserId]      NVARCHAR (MAX) NOT NULL,
     [Event]       INT            NOT NULL,
-    [ExtraInfo]   NVARCHAR (MAX) NOT NULL,
+    [ExtraInfo]   NVARCHAR (MAX) NULL,
     [UkPrn]       NVARCHAR (MAX) NULL,
     CONSTRAINT [PK_Audit] PRIMARY KEY CLUSTERED ([ID] ASC)
 );

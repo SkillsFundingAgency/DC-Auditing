@@ -25,7 +25,7 @@ namespace ESFA.DC.Auditing.Database.Tests
                 ExpectedColumn.CreateNvarChar("Source", 5, false),
                 ExpectedColumn.CreateNvarChar("UserId", 6, false),
                 ExpectedColumn.CreateInt("Event", 7, false),
-                ExpectedColumn.CreateNvarChar("ExtraInfo", 8, false),
+                ExpectedColumn.CreateNvarChar("ExtraInfo", 8, true),
                 ExpectedColumn.CreateNvarChar("UkPrn", 9, true)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("dbo", "Audit", expectedColumns, true);
