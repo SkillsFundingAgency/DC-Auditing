@@ -6,10 +6,11 @@
     <DeployScriptFileName>__DatabaseProjectName__.sql</DeployScriptFileName>
     <TargetConnectionString>Data Source=__SqlServer__;Persist Security Info=True;User ID=__SqlServerAdminUsername__;Password=__SqlServerAdminPassword__;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;</TargetConnectionString>
     <ProfileVersionNumber>1</ProfileVersionNumber>
-    <RegisterDataTierApplication>False</RegisterDataTierApplication>
+    <RegisterDataTierApplication>True</RegisterDataTierApplication>
     <BlockOnPossibleDataLoss>False</BlockOnPossibleDataLoss>
     <BackupDatabaseBeforeChanges>True</BackupDatabaseBeforeChanges>
     <IgnoreIdentitySeed>True</IgnoreIdentitySeed>
+    <BlockWhenDriftDetected>False</BlockWhenDriftDetected>
   </PropertyGroup>
   <ItemGroup>
     <SqlCmdVariable Include="AppAuditUserPwd">
