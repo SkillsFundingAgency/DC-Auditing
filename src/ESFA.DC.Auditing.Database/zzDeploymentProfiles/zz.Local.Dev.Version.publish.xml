@@ -6,8 +6,10 @@
     <DeployScriptFileName>ESFA.DC.Auditing.Database.sql</DeployScriptFileName>
     <TargetConnectionString>Data Source=(localdb)\ProjectsV13;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True</TargetConnectionString>
     <ProfileVersionNumber>1</ProfileVersionNumber>
-    <BlockWhenDriftDetected>False</BlockWhenDriftDetected>
     <RegisterDataTierApplication>True</RegisterDataTierApplication>
+    <BlockOnPossibleDataLoss>False</BlockOnPossibleDataLoss>
+    <IgnoreIdentitySeed>True</IgnoreIdentitySeed>
+    <BlockWhenDriftDetected>False</BlockWhenDriftDetected>
   </PropertyGroup>
   <ItemGroup>
     <SqlCmdVariable Include="AppAuditUserPwd">

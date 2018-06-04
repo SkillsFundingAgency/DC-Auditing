@@ -6,18 +6,20 @@
     <DeployScriptFileName>__DatabaseProjectName__.sql</DeployScriptFileName>
     <TargetConnectionString>Data Source=__SqlServer__;Persist Security Info=True;User ID=__SqlServerAdminUsername__;Password=__SqlServerAdminPassword__;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;</TargetConnectionString>
     <ProfileVersionNumber>1</ProfileVersionNumber>
-    <BlockWhenDriftDetected>False</BlockWhenDriftDetected>
     <RegisterDataTierApplication>True</RegisterDataTierApplication>
+    <BlockOnPossibleDataLoss>False</BlockOnPossibleDataLoss>
+    <IgnoreIdentitySeed>True</IgnoreIdentitySeed>
+    <BlockWhenDriftDetected>False</BlockWhenDriftDetected>
   </PropertyGroup>
   <ItemGroup>
     <SqlCmdVariable Include="AppAuditUserPwd">
       <Value>__AUDITUSERPASSWORD__</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="BUILD_BUILDNUMBER">
-      <Value>__BUILD_BUILDNUMBER__</Value>
-    </SqlCmdVariable>
     <SqlCmdVariable Include="BUILD_BRANCHNAME">
       <Value>__BUILD_SOURCEBRANCHNAME__</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BUILD_BUILDNUMBER">
+      <Value>__BUILD_BUILDNUMBER__</Value>
     </SqlCmdVariable>
   </ItemGroup>
 </Project>
