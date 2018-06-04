@@ -124,6 +124,7 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="Security" />
     <Folder Include="zzDeploymentProfiles" />
+    <Folder Include="dbo\Views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Audit.sql">
@@ -136,6 +137,8 @@
     </Build>
     <Build Include="Security\RoleMemberships.sql" />
     <Build Include="Security\AppAuditUser.sql" />
+    <Build Include="dbo\Tables\AuditEventType.sql" />
+    <Build Include="dbo\Views\AuditInformation.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="zzDeploymentProfiles\Release.publish.xml" />
