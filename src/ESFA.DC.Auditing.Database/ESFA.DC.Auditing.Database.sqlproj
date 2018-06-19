@@ -138,7 +138,6 @@
     <Build Include="Security\AppAuditUser.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="zzDeploymentProfiles\Release.publish.xml" />
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
   </ItemGroup>
   <ItemGroup>
