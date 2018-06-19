@@ -59,7 +59,7 @@ namespace ESFA.DC.Auditing
                 jobContextMessage,
                 AuditEventType.ServiceFinished);
 
-            if (jobContextMessage.TopicPointer == jobContextMessage.Topics.Count)
+            if (jobContextMessage.TopicPointer == jobContextMessage.Topics.Count - 1)
             {
                 await AuditAsync(
                     jobContextMessage,

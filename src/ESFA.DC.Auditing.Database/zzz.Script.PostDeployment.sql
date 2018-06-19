@@ -40,6 +40,24 @@ GO
 RAISERROR('		   Extended Property - Compelete',10,1) WITH NOWAIT;
 
 GO
+
+MERGE INTO AuditEventType AS Target
+USING (VALUES
+	(0, 'JobSubmitted', 'Job was submitted'),
+	(1, 'JobStarted', 'Job was started'),
+	(2, 'ServiceStarted', 'A service started'),
+	(3, 'ServiceFailed', 'A service failed'),
+	(4, 'ServiceFinished', 'A service finished'),
+	(5, 'JobFailed', 'A job failed'),
+	(6, 'JobFinished', 'A job finished')
+	)
+	AS Source([EventId], [EventTitle], [EventDescription])
+	ON Target.[EventId] = Source.[EventId]
+	WHEN MATCHED THEN UPDATE SET Target.EventDescription = Source.EventDescription	
+	WHEN NOT MATCHED BY TARGET THEN INSERT([EventId], [EventTitle], [EventDescription]) VALUES ([EventId], [EventTitle], [EventDescription])
+	WHEN NOT MATCHED BY SOURCE THEN DELETE;
+
+Go
 RAISERROR('		   Update User Account Passwords',10,1) WITH NOWAIT;
 GO
 ALTER USER AppAuditUser WITH PASSWORD = N'$(AppAuditUserPwd)';
