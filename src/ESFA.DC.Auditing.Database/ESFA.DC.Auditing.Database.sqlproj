@@ -125,6 +125,7 @@
     <Folder Include="Security" />
     <Folder Include="zzDeploymentProfiles" />
     <Folder Include="dbo\Views" />
+    <Folder Include="ReferenceData" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Audit.sql">
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
+    <None Include="ReferenceData\AuditEventType.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="AppAuditUserPwd">
