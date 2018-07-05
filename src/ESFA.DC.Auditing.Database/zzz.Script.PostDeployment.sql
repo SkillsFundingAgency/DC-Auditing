@@ -37,19 +37,13 @@ ELSE
 	EXEC sp_updateextendedproperty @name = N'DeploymentDatetime', @value = @DeploymentTime;  
 
 GO
-RAISERROR('		   Extended Property - Compelete',10,1) WITH NOWAIT;
-
-GO
-RAISERROR('		        Load ReferenceData',10,1) WITH NOWAIT;
+RAISERROR('		   Ref Data',10,1) WITH NOWAIT;
 	:r .\ReferenceData\AuditEventType.sql
 
-RAISERROR('		        Load ReferenceData - Compelete',10,1) WITH NOWAIT;
 
 Go
 RAISERROR('		   Update User Account Passwords',10,1) WITH NOWAIT;
 GO
 ALTER USER AppAuditUser WITH PASSWORD = N'$(AppAuditUserPwd)';
 
-GO
-RAISERROR('		   Update User Account Passwords Update Complete',10,1) WITH NOWAIT;
 GO
