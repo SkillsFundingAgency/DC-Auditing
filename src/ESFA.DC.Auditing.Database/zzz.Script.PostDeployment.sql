@@ -9,6 +9,7 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
+SET NOCOUNT ON; 
 
 GO
 RAISERROR('		   Extended Property',10,1) WITH NOWAIT;
@@ -34,27 +35,39 @@ IF NOT EXISTS (SELECT name, value FROM fn_listextendedproperty('DeploymentDateti
 	EXEC sp_addextendedproperty @name = N'DeploymentDatetime', @value = @DeploymentTime;  
 ELSE
 	EXEC sp_updateextendedproperty @name = N'DeploymentDatetime', @value = @DeploymentTime;  
-
-
-GO
-RAISERROR('		   Extended Property - Compelete',10,1) WITH NOWAIT;
-
 GO
 
-MERGE INTO AuditEventType AS Target
-USING (VALUES
-	(0, 'JobSubmitted', 'Job was submitted'),
-	(1, 'JobStarted', 'Job was started'),
-	(2, 'ServiceStarted', 'A service started'),
-	(3, 'ServiceFailed', 'A service failed'),
-	(4, 'ServiceFinished', 'A service finished'),
-	(5, 'JobFailed', 'A job failed'),
-	(6, 'JobFinished', 'A job finished')
-	)
-	AS Source([EventId], [EventTitle], [EventDescription])
-	ON Target.[EventId] = Source.[EventId]
-	WHEN MATCHED THEN UPDATE SET Target.EventDescription = Source.EventDescription	
-	WHEN NOT MATCHED BY TARGET THEN INSERT([EventId], [EventTitle], [EventDescription]) VALUES ([EventId], [EventTitle], [EventDescription])
-	WHEN NOT MATCHED BY SOURCE THEN DELETE;
+RAISERROR('		         %s - %s',10,1,'ReleaseName','$(RELEASE_RELEASENAME)') WITH NOWAIT;
+IF NOT EXISTS (SELECT name, value FROM fn_listextendedproperty('ReleaseName', default, default, default, default, default, default))
+	EXEC sp_addextendedproperty @name = N'ReleaseName', @value = '$(RELEASE_RELEASENAME)';  
+ELSE
+	EXEC sp_updateextendedproperty @name = N'ReleaseName', @value = '$(RELEASE_RELEASENAME)';  
+GO
+
+IF EXISTS (SELECT * FROM [sys].[objects] WHERE [type] = 'V' AND Name = 'DisplayDeploymentProperties_VW')
+BEGIN 
+	DROP VIEW [dbo].[DisplayDeploymentProperties_VW];
+END
+
+GO
+EXEC ('CREATE VIEW [dbo].[DisplayDeploymentProperties_VW]
+AS
+	SELECT name, value 
+	FROM fn_listextendedproperty(default, default, default, default, default, default, default);  
+	');
+
+GO
+
+
+RAISERROR('		   Ref Data',10,1) WITH NOWAIT;
+	:r .\ReferenceData\AuditEventType.sql
+
 
 Go
+RAISERROR('		   Update User Account Passwords',10,1) WITH NOWAIT;
+GO
+ALTER USER AppAuditUser WITH PASSWORD = N'$(AppAuditUserPwd)';
+
+GO
+RAISERROR('Completed',10,1) WITH NOWAIT;
+GO

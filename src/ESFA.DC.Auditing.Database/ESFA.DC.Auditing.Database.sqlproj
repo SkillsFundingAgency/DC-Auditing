@@ -125,6 +125,7 @@
     <Folder Include="Security" />
     <Folder Include="zzDeploymentProfiles" />
     <Folder Include="dbo\Views" />
+    <Folder Include="ReferenceData" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Audit.sql">
@@ -141,8 +142,8 @@
     <Build Include="dbo\Views\AuditInformation.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="zzDeploymentProfiles\Release.publish.xml" />
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
+    <None Include="ReferenceData\AuditEventType.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="AppAuditUserPwd">
@@ -158,6 +159,11 @@
       <DefaultValue>
       </DefaultValue>
       <Value>$(SqlCmdVar__3)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="RELEASE_RELEASENAME">
+      <DefaultValue>
+      </DefaultValue>
+      <Value>$(SqlCmdVar__5)</Value>
     </SqlCmdVariable>
   </ItemGroup>
   <ItemGroup>
