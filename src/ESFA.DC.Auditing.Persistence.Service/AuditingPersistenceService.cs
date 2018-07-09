@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Threading;
 using System.Threading.Tasks;
@@ -30,10 +31,13 @@ namespace ESFA.DC.Auditing.Persistence.Service
 
         public void Subscribe()
         {
-            _queueSubscriptionService.Subscribe((dto, token) => ProcessMessageAsync((T)dto, token));
+            _queueSubscriptionService.Subscribe((dto, dict, token) => ProcessMessageAsync((T)dto, dict, token));
         }
 
-        private async Task<bool> ProcessMessageAsync(T obj, CancellationToken cancellationToken)
+        private async Task<IQueueCallbackResult> ProcessMessageAsync(
+            T obj,
+            IDictionary<string, object> messageProperties,
+            CancellationToken cancellationToken)
         {
             try
             {
@@ -47,22 +51,21 @@ namespace ESFA.DC.Auditing.Persistence.Service
                     await connection.OpenAsync(cancellationToken);
                     if (cancellationToken.IsCancellationRequested)
                     {
-                        return false;
+                        return new QueueCallbackResult(false, null);
                     }
 
                     await connection.ExecuteAsync(
                         SqlAudit,
                         new { obj.JobId, DateTimeUtc = DateTime.UtcNow, obj.Filename, obj.Source, obj.UserId, obj.EventType, obj.ExtraInfo, obj.UkPrn });
 
-                    return true;
+                    return new QueueCallbackResult(true, null);
                 }
             }
             catch (Exception ex)
             {
                 _logger.LogError("Failed to process Audit message", ex);
+                return new QueueCallbackResult(false, ex);
             }
-
-            return false;
         }
     }
 }
