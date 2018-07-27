@@ -3,7 +3,7 @@
     [JobId]       BIGINT         NOT NULL,
     [DateTimeUtc] DATETIME       NOT NULL,
     [Filename]    NVARCHAR (MAX) NULL,
-    [Source]      NVARCHAR (MAX) NOT NULL,
+    [Source]      NVARCHAR (MAX) NULL,
     [UserId]      NVARCHAR (MAX) NOT NULL,
     [Event]       INT            NOT NULL,
     [ExtraInfo]   NVARCHAR (MAX) NULL,

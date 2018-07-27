@@ -85,7 +85,6 @@
   <ItemGroup>
     <Compile Include="AuditTesting.cs" />
     <Compile Include="DatabaseConnectionFixture.cs" />
-    <Compile Include="JobStatusTesting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
