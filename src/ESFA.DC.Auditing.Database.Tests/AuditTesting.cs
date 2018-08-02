@@ -22,7 +22,7 @@ namespace ESFA.DC.Auditing.Database.Tests
                 ExpectedColumn.CreateBigInt("JobId", 2, false),
                 ExpectedColumn.CreateDateTime("DateTimeUtc", 3, false),
                 ExpectedColumn.CreateNvarChar("Filename", 4, true),
-                ExpectedColumn.CreateNvarChar("Source", 5, false),
+                ExpectedColumn.CreateNvarChar("Source", 5, true),
                 ExpectedColumn.CreateNvarChar("UserId", 6, false),
                 ExpectedColumn.CreateInt("Event", 7, false),
                 ExpectedColumn.CreateNvarChar("ExtraInfo", 8, true),
