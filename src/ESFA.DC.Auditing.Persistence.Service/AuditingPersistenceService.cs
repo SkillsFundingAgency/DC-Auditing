@@ -31,7 +31,7 @@ namespace ESFA.DC.Auditing.Persistence.Service
 
         public void Subscribe()
         {
-            _queueSubscriptionService.Subscribe((dto, dict, token) => ProcessMessageAsync((T)dto, dict, token));
+            _queueSubscriptionService.Subscribe((dto, dict, token) => ProcessMessageAsync((T)dto, dict, token), CancellationToken.None);
         }
 
         private async Task<IQueueCallbackResult> ProcessMessageAsync(
