@@ -5,13 +5,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using Dapper;
 using ESFA.DC.Auditing.Dto;
-using ESFA.DC.Auditing.Interface;
 using ESFA.DC.Logging.Interfaces;
 using ESFA.DC.Queueing.Interface;
+using IAuditingPersistenceServiceConfig = ESFA.DC.Auditing.Persistence.Service.Interface.IAuditingPersistenceServiceConfig;
 
 namespace ESFA.DC.Auditing.Persistence.Service
 {
-    public sealed class AuditingPersistenceService<T> : IAuditingPersistenceService<T>
+    public sealed class AuditingPersistenceService<T> : Interface.IAuditingPersistenceService<T>
         where T : AuditingDto, new()
     {
         private const string SqlAudit = "INSERT INTO [dbo].[Audit] ([JobId], [DateTimeUtc], [Filename], [Source], [UserId], [Event], [ExtraInfo], [UkPrn]) VALUES (@JobId, @DateTimeUtc, @Filename, @Source, @UserId, @EventType, @ExtraInfo, @UkPrn)";

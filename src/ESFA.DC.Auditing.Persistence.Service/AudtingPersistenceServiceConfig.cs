@@ -1,4 +1,5 @@
 ﻿using ESFA.DC.Auditing.Interface;
+using IAuditingPersistenceServiceConfig = ESFA.DC.Auditing.Persistence.Service.Interface.IAuditingPersistenceServiceConfig;
 
 namespace ESFA.DC.Auditing.Persistence.Service
 {
