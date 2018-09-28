@@ -5,10 +5,6 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.Auditing.Interface", "ESFA.DC.Auditing.Interface\ESFA.DC.Auditing.Interface.csproj", "{6FFD7068-FFE0-48B5-BE2C-4C90DEE39842}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.Auditing.Dto", "ESFA.DC.Auditing.Dto\ESFA.DC.Auditing.Dto.csproj", "{C7DFF9EF-6B87-4666-B5CC-852CD84A37C9}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.Auditing", "ESFA.DC.Auditing\ESFA.DC.Auditing.csproj", "{78B47937-09E7-4E9A-9E2D-0E35AD4A41AD}"
-EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ESFA.DC.Auditing.Database", "ESFA.DC.Auditing.Database\ESFA.DC.Auditing.Database.sqlproj", "{0A64E9BC-94E5-49D6-888E-921645E18EC2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.Auditing.Database.Tests", "ESFA.DC.Auditing.Database.Tests\ESFA.DC.Auditing.Database.Tests.csproj", "{96CC3DFD-D7E4-425D-B589-13ED214A8366}"
@@ -30,14 +26,6 @@ Global
 		{6FFD7068-FFE0-48B5-BE2C-4C90DEE39842}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FFD7068-FFE0-48B5-BE2C-4C90DEE39842}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FFD7068-FFE0-48B5-BE2C-4C90DEE39842}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C7DFF9EF-6B87-4666-B5CC-852CD84A37C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7DFF9EF-6B87-4666-B5CC-852CD84A37C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7DFF9EF-6B87-4666-B5CC-852CD84A37C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7DFF9EF-6B87-4666-B5CC-852CD84A37C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78B47937-09E7-4E9A-9E2D-0E35AD4A41AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78B47937-09E7-4E9A-9E2D-0E35AD4A41AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78B47937-09E7-4E9A-9E2D-0E35AD4A41AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78B47937-09E7-4E9A-9E2D-0E35AD4A41AD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0A64E9BC-94E5-49D6-888E-921645E18EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A64E9BC-94E5-49D6-888E-921645E18EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A64E9BC-94E5-49D6-888E-921645E18EC2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
